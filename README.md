@@ -4,8 +4,6 @@
 
 This project uses **causal directed acyclic graphs (DAGs)** to go beyond correlation. It learns and compares competing causal structures from the data, finds the right variables to control for using the **backdoor criterion**, estimates total, direct, and indirect effects, and checks how sensitive the results are to the model's assumptions and to unmeasured confounding.
 
-> Causal Models · Mia Mac · University of Chicago
-
 ---
 
 ## Key Findings
@@ -99,32 +97,3 @@ Three questions test whether the conclusions depend on choices made along the wa
 - The main estimates treat the ordinal outcome as continuous. The ordinal model confirms the direction and significance of the results.
 
 ---
-
-## Getting Started
-
-### Requirements
-R (≥ 4.1) with:
-
-```r
-install.packages(c("tidyverse", "janitor", "corrplot", "bnlearn", "dagitty",
-                   "ggdag", "MASS", "marginaleffects", "sensemakr",
-                   "WeightIt", "cobalt"))
-install.packages("BiocManager"); BiocManager::install("Rgraphviz")  # optional, nicer DAG plots
-```
-
-### Running the Analysis
-1. Download `StressLevelDataset.csv` and put it in the project folder.
-2. Change the path in the `read_csv()` call to point to it:
-   ```r
-   stress <- read_csv("StressLevelDataset.csv") |> clean_names()
-   ```
-3. Run `Coding.R` from top to bottom. Results are noted as comments under each section.
-
-## Built With
-- **Causal structure:** [bnlearn](https://www.bnlearn.com/), [dagitty](https://www.dagitty.net/), [ggdag](https://r-causal.github.io/ggdag/)
-- **Estimation:** MASS (`polr`), [marginaleffects](https://marginaleffects.com/)
-- **Sensitivity:** [sensemakr](https://carloscinelli.com/sensemakr/)
-- **Data & plotting:** tidyverse, janitor, corrplot
-
-## Author
-**Mia Mac**
